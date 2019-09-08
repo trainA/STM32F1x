@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\User;.\Libraries\CMSIS;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\LED</IncludePath>
+              <IncludePath>.\User;.\Libraries\CMSIS;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\LED;.\SYSTICK</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -417,6 +417,11 @@
               <FileType>1</FileType>
               <FilePath>.\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c</FilePath>
             </File>
+            <File>
+              <FileName>misc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -441,6 +446,16 @@
               <FileName>led.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\LED\led.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SYSTICK</GroupName>
+          <Files>
+            <File>
+              <FileName>MySysTick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SYSTICK\MySysTick.c</FilePath>
             </File>
           </Files>
         </Group>
