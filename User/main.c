@@ -1,6 +1,10 @@
 #include "stm32f10x.h"
 #include "led.h"
-
+#include "MySysTick.h"
+/*
+第一个参数设置 主频分频
+第二个参数设置 倍频
+*/
 void RCC_HSE_Config(u32 div,u32 pllm) //自定义系统时间（可以修改时钟）
 {
 	RCC_DeInit(); //将外设RCC寄存器重设为缺省值
@@ -20,20 +24,20 @@ void RCC_HSE_Config(u32 div,u32 pllm) //自定义系统时间（可以修改时钟）
 
 int main(void)
 {
-	uint32_t i,j;
+	uint32_t j;
 	j = 0;
+	RCC_HSE_Config(RCC_PLLSource_HSE_Div1,RCC_PLLMul_9);
+	SysTick_Init(72);
+	
 	led_init();
-//	GPIO_ResetBits(LED_PORT,GPIO_Pin_0);
 	while(1)
 	{
-
+		delay_ms(1000);
 		led_on(j);
-		for(i = 0;i<(uint32_t)0xfffff;i++)
-						;
+		delay_ms(1000);
 		led_off(j);
 		++j;
 		j%=8;
-		for(i = 0;i<(uint32_t)0xfffff;i++)	
-		;
+	
 	}
 }
