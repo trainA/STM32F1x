@@ -12,7 +12,7 @@ uint16_t fac_ms;
 void SysTick_Init(uint8_t SYSCLK)
 {
 		SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);//选择时钟源
-		fac_us = SYSCLK/8;																	//设置us用时
+		fac_us = SYSCLK/8;																	//设置us用时 上面选择8分频所以除以8
 		fac_ms = (u16)fac_us*1000;													//设置ms用时
 }
 void delay_ms(uint32_t  mus)
@@ -36,12 +36,8 @@ void delay_ms(uint32_t  mus)
 void delay_us(uint32_t  us)
 {
 		uint32_t temp;
-		SysTick->LOAD = us*fac_us;				//设置倒计时值LOAD是一个24位的最大不能超过
-		/*
-			计算方法为LOAD 最大值为2^24
-			fac_us为9000
-			LOAD可以赋值的最大值为2^24/9000 
-		*/
+		SysTick->LOAD = us*fac_us;				
+
 		SysTick->VAL = 0x00;							//清空计数器
 		SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;	//开始倒数
 		do

@@ -392,6 +392,11 @@
               <FileType>1</FileType>
               <FilePath>.\User\stm32f10x_it.c</FilePath>
             </File>
+            <File>
+              <FileName>sys.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\sys.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
