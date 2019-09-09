@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\User;.\Libraries\CMSIS;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\LED;.\SYSTICK</IncludePath>
+              <IncludePath>.\User;.\Libraries\CMSIS;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\LED;.\SYSTICK;.\BEEP</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -456,6 +456,16 @@
               <FileName>MySysTick.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SYSTICK\MySysTick.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>BEEP</GroupName>
+          <Files>
+            <File>
+              <FileName>beep.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BEEP\beep.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -33,3 +33,21 @@ void delay_ms(uint32_t  mus)
 		SysTick->CTRL &=~SysTick_CTRL_ENABLE_Msk;	//关闭计数器
 		SysTick->VAL = 0x00;//清空计数器
 }
+void delay_us(uint32_t  us)
+{
+		uint32_t temp;
+		SysTick->LOAD = us*fac_us;				//设置倒计时值LOAD是一个24位的最大不能超过
+		/*
+			计算方法为LOAD 最大值为2^24
+			fac_us为9000
+			LOAD可以赋值的最大值为2^24/9000 
+		*/
+		SysTick->VAL = 0x00;							//清空计数器
+		SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;	//开始倒数
+		do
+		{
+			temp = SysTick->CTRL;						//读取当前计数值
+		}while((temp&0x01)&&!(temp&(1<<16)));	//寄存器CTRL最后一位为1位1 表示计数开始了 第16位为1 的时候倒计时为0 了
+		SysTick->CTRL &=~SysTick_CTRL_ENABLE_Msk;	//关闭计数器
+		SysTick->VAL = 0x00;//清空计数器
+}

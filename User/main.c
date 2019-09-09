@@ -28,7 +28,7 @@ int main(void)
 	j = 0;
 	RCC_HSE_Config(RCC_PLLSource_HSE_Div1,RCC_PLLMul_9);
 	SysTick_Init(72);
-	
+
 	led_init();
 	while(1)
 	{
