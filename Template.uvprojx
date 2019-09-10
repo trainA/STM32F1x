@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\User;.\Libraries\CMSIS;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\LED;.\SYSTICK;.\BEEP;.\KEY</IncludePath>
+              <IncludePath>.\User;.\Libraries\CMSIS;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\LED;.\SYSTICK;.\BEEP;.\KEY;.\EXIT</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -486,6 +486,16 @@
               <FileName>key.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\KEY\key.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>EXIT</GroupName>
+          <Files>
+            <File>
+              <FileName>exit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\EXIT\exit.c</FilePath>
             </File>
           </Files>
         </Group>
