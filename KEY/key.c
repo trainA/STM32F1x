@@ -1,10 +1,7 @@
 #include "key.h"
-#include "sys.h"
+
 #include "MySysTick.h"
-#define K_UP 			GPIO_ReadInputDataBit(KEY_UP_PORT,KEY_UP_PIN)
-#define K_DOWN 		GPIO_ReadInputDataBit(KEY_UP_PORT,KEY_DOWN_PIN)
-#define K_LEFT 		GPIO_ReadInputDataBit(KEY_UP_PORT,KEY_LEFT_PIN)
-#define K_RIGHT  	GPIO_ReadInputDataBit(KEY_UP_PORT,KEY_RIGHT_PIN)
+
 
 void key_init(void)
 {

@@ -2,6 +2,7 @@
 #include "led.h"
 #include "MySysTick.h"
 #include "beep.h"
+#include "exit.h"
 /*
 第一个参数设置 主频分频
 第二个参数设置 倍频
