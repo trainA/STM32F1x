@@ -4,6 +4,7 @@
 #include "sys.h"
 #include "led.h"
 #include "key.h"
+#include "beep.h"
 /*
 按键中断初始化
 */
@@ -79,7 +80,7 @@ void EXTI0_IRQHandler(void)
 				delay_ms(10);
 				if(K_UP == 1)
 				{
-						led_on(0);
+					beep= 1;
 				}
 		}
 		EXTI_ClearITPendingBit(EXTI_Line0);
@@ -93,7 +94,7 @@ void EXTI2_IRQHandler(void)
 				delay_ms(10);
 				if(K_LEFT == 0)
 				{
-						led_on(0);
+						beep = 0;
 				}
 		}
 		EXTI_ClearITPendingBit(EXTI_Line2);
@@ -106,7 +107,7 @@ void EXTI3_IRQHandler(void)
 				delay_ms(10);
 				if(K_DOWN == 0)
 				{
-						led_on(0);
+						led_on(6);
 				}
 		}
 		EXTI_ClearITPendingBit(EXTI_Line3);
@@ -119,7 +120,7 @@ void EXTI4_IRQHandler(void)
 				delay_ms(10);
 				if(K_RIGHT == 0)
 				{
-						led_on(0);
+						led_on(4);
 				}
 		}
 		EXTI_ClearITPendingBit(EXTI_Line4);

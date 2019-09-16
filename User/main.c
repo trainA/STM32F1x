@@ -3,6 +3,7 @@
 #include "MySysTick.h"
 #include "beep.h"
 #include "exit.h"
+#include "exti_tim.h"
 /*
 第一个参数设置 主频分频
 第二个参数设置 倍频
@@ -26,22 +27,27 @@ void RCC_HSE_Config(u32 div,u32 pllm) //自定义系统时间（可以修改时钟）
 
 int main(void)
 {
-	uint32_t j;
-	j = 0;
+//	uint32_t j;
+//	j = 0;
 	RCC_HSE_Config(RCC_PLLSource_HSE_Div1,RCC_PLLMul_9);
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+	exit_key_init();
+	TIM4_init(1000,36000-1);//500ms中断一次
 	SysTick_Init(72);
 	led_init();
 	beep_init();
-	beep = 1;
-	
+//	beep = 1;
+	beep_on();
 	while(1)
-	{
-		delay_ms(1000);
-		led_on(j);
-		delay_ms(1000);
-		led_off(j);
-		++j;
-		j%=8;
+		;
+//	{
+//		delay_ms(1000);
+//		led_on(j);
+//		delay_ms(1000);
+//		led_off(j);
+//		++j;
+//		j%=8;
 
-	}
+//	}
 }
+
