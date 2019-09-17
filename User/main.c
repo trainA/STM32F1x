@@ -6,6 +6,7 @@
 #include "exti_tim.h"
 #include "PWM_LED.h"
 #include "usart.h"
+#include <stdio.h>
 /*
 第一个参数设置 主频分频
 第二个参数设置 倍频
@@ -26,7 +27,15 @@ void RCC_HSE_Config(u32 div, u32 pllm) //自定义系统时间（可以修改时钟）
         while(RCC_GetSYSCLKSource() != 0x08); //返回用作系统时钟的时钟源,0x08：PLL作为系统时钟
     }
 }
-
+/**
+ * 重定向printf
+*/
+int fputc(int ch ,FILE *p)
+{
+    USART_SendData(USART1,(u8)ch);
+    while (USART_GetFlagStatus(USART1,USART_FLAG_TXE) == RESET);
+    return ch;
+}
 int main(void)
 {
 
@@ -42,6 +51,8 @@ int main(void)
     //	beep = 1;
     TIM3_CH1_PWM_Init(500, 72 - 1);
 		USART1_Init(9600);
+
+    printf("start\n");
     while(1)
     {
 
