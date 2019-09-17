@@ -5,6 +5,7 @@
 #include "exit.h"
 #include "exti_tim.h"
 #include "PWM_LED.h"
+#include "usart.h"
 /*
 第一个参数设置 主频分频
 第二个参数设置 倍频
@@ -40,6 +41,7 @@ int main(void)
     //	beep_init();
     //	beep = 1;
     TIM3_CH1_PWM_Init(500, 72 - 1);
+		USART1_Init(9600);
     while(1)
     {
 

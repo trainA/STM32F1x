@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\User;.\Libraries\CMSIS;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\LED;.\SYSTICK;.\BEEP;.\KEY;.\EXIT;.\PWM</IncludePath>
+              <IncludePath>.\User;.\Libraries\CMSIS;.\Libraries\STM32F10x_StdPeriph_Driver\inc;.\LED;.\SYSTICK;.\BEEP;.\KEY;.\EXIT;.\PWM;.\USART</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -437,6 +437,11 @@
               <FileType>1</FileType>
               <FilePath>.\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_tim.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -521,6 +526,16 @@
               <FileName>PWM_LED.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\PWM\PWM_LED.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>USART</GroupName>
+          <Files>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USART\usart.c</FilePath>
             </File>
           </Files>
         </Group>
